@@ -1,0 +1,38 @@
+<br>
+<div class="row">
+    <div class="col s7">
+        <div>
+            <h5>Numbers</h5>
+            <a class="btn-floating" [class.disabled]="disabled[0]" (click)="selectedNum(1,' ')"><i class="material-icons">filter_1</i></a>
+            <a class="btn-floating blue" [class.disabled]="disabled[1]" (click)="selectedNum(2,'blue')"><i class="material-icons">filter_2</i></a>
+            <a class="btn-floating red" [class.disabled]="disabled[2]" (click)="selectedNum(3,'red')"><i class="material-icons">filter_3</i></a>
+            <a class="btn-floating green" [class.disabled]="disabled[3]" (click)="selectedNum(4,'green')"><i class="material-icons">filter_4</i></a>
+            <a class="btn-floating pink" [class.disabled]="disabled[4]" (click)="selectedNum(5,'pink')"><i class="material-icons">filter_5</i></a>
+            <a class="btn-floating purple" [class.disabled]="disabled[5]" (click)="selectedNum(6,'purple')"><i class="material-icons">filter_6</i></a>
+            <a class="btn-floating cyan" [class.disabled]="disabled[6]" (click)="selectedNum(7,'cyan')"><i class="material-icons">filter_7</i></a>
+            <a class="btn-floating lime" [class.disabled]="disabled[7]" (click)="selectedNum(8,'lime')"><i class="material-icons">filter_8</i></a>
+            <a class="btn-floating yellow" [class.disabled]="disabled[8]" (click)="selectedNum(9,'yellow')"><i class="material-icons">filter_9</i></a>
+            <a class="btn-floating orange" [class.disabled]="disabled[9]" (click)="selectedNum(10,'orange')"><i class="material-icons">timer_10</i></a>
+        </div>
+        <br>
+        <br>
+        <hr>
+        <div *ngIf="see">
+
+       
+        <div *ngIf="result.length">
+            <h5>Result</h5>
+            <a *ngFor="let sel of result" class="btn-floating {{sel.color}}" ><i class="material-icons" *ngIf="sel.id!=10">filter_{{sel.id}}</i><i class="material-icons" *ngIf="sel.id==10">timer_{{sel.id}}</i></a>
+            <h5 class="green-text text-darken-2">YOU WON: {{total}}€</h5>
+        </div>
+        <div *ngIf="!result.length">
+            <h5>Result</h5>
+            <a class="btn-floating"><i class="material-icons">insert_emoticon</i></a>  
+            <h5 class="green-orange text-darken-2">YOU LOST</h5>
+        </div>
+    </div>
+    </div>
+    <div class="col s5">
+        <app-bet-slip  [slip]="slip" (newItemEvent)="addItem($event)"></app-bet-slip>
+    </div>
+</div>

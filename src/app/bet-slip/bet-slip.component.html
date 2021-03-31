@@ -1,0 +1,24 @@
+<a *ngFor="let sel of slip" class="btn-floating {{sel.color}}" ><i class="material-icons" *ngIf="sel.id!=10">filter_{{sel.id}}</i><i class="material-icons" *ngIf="sel.id==10">timer_{{sel.id}}</i></a>
+<div *ngIf="!slip.length">
+    <a  *ngFor="let sel of [1,2,3,4,5,6,7,8]" class="btn-floating disabled"><i class="material-icons">add</i></a>
+</div >
+<br>
+<div class="row">
+    <div class="col s12">
+      {{slip.length}}x:
+      <div class="input-field inline">
+        <input id="email_inline" type="number" class="validate" [(ngModel)]="model.total">
+        <label for="email_inline">Value</label>
+        </div>
+    </div>
+       
+      
+   
+    <h5>Total: {{model.total * slip.length}}€</h5>
+    <div class="col s12">
+        <button class="btn waves-effect waves-light blue"  name="action" (click)="calTotal()">Place Bet
+            <i class="material-icons right">send</i>
+          </button>
+      </div>
+
+    </div>
