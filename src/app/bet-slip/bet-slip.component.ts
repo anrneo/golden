@@ -30,7 +30,7 @@ export class BetSlipComponent implements OnInit {
       let random = Math.floor(Math.random() * (1 - 11) + 11)
       let data = this.slip.filter( (x:any) =>x.id==random)
       if (data.length) {
-        data[0].total = this.model.total * this.slip.length
+        data[0].total = this.model.total * this.slip.length * 1.5
         this.newItemEvent.emit(data[0]);
       }else{
         this.newItemEvent.emit(false);
