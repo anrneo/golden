@@ -18,12 +18,12 @@ export class BallSelectorComponent implements OnInit {
 
   selectedNum(id:any, color:any){
 
-    this.disabled[id-1]= 1
-   
+    
     
     
     this.see = false
     if (this.slip.length < 8) {
+      this.disabled[id-1]= 1
       this.slip.push({id:id, color:color})
     }
   }
